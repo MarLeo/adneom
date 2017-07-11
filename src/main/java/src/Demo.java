@@ -26,13 +26,13 @@ public class Demo {
         }*/
 
         int partitions = 2;
-        List<List<String>> big = partitions(queue, partitions);
+        List<List<String>> big = Helper.partitions(queue, partitions);
         System.out.println("partitions in " + big);
 
     }
 
 
-    private static<T> List<List<T>> partitions(Object queue, int partitions) {
+ /*   private static<T> List<List<T>> partitions(Object queue, int partitions) {
         List<List<T>> big = new LinkedList<>();
 
             if (!(queue instanceof Queue)) {
@@ -61,6 +61,7 @@ public class Demo {
             }
         return big;
     }
+    */
 }
 
 
