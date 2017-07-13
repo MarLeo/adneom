@@ -8,5 +8,5 @@ en un ensemble de sous liste.
 Pour cela, il faut donc que la librairie soit générique, c'est à dire que notre librairie doit etre
 capable de partitioner toutes les classes(listes) qui héritent de l'interface collection.
 
-![alt text](http://url/to/img.png)
+![Alt text](https://github.com/MarLeo/adneom/blob/master/collection.jpg)
 ```
