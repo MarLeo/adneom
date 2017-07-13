@@ -20,12 +20,7 @@ public class Driver {
         queue.add("Spark");
         queue.add("Flink");
 
-
-
-
-
         System.out.println("Items in the queue..." + queue + " with size: " + queue.size());
-
 
         int partitions = 1;
         List<List<String>> big = Helper.partitions(queue, partitions);
