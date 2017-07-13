@@ -52,4 +52,10 @@ On obtient donc une couverture de 100%
 ```
 ![Alt text](https://github.com/MarLeo/adneom/blob/master/couverture.PNG)
 
+# Exécution
+```sh
+Pour tester notre petit programme la commande suivante vous sera d'une grande aide:
+$ mvn clean package
+```
+
 
