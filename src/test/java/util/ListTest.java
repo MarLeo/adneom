@@ -8,8 +8,9 @@ import java.util.*;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.fail;
 
-public class HelperTest {
+public class ListTest {
 
 
     // List
@@ -20,6 +21,7 @@ public class HelperTest {
 
     List<List<String>> expectedList;
     int partitions;
+    int partitions_exception;
 
     String[] values = null;
 
@@ -32,6 +34,7 @@ public class HelperTest {
         expectedList = new LinkedList<>();
         values = new String[]{"Java", ".Net", "Javascript", "HTML5", "Hadoop", "Spark", "Flink"};
         partitions = 2;
+        partitions_exception = -1;
 
         for(String value: values) {
             arrayListQueue.add(value);
@@ -71,8 +74,29 @@ public class HelperTest {
     }
 
 
-    // setup
+    @Test(expected = BusinessException.class)
+    public void arrayListTestFail() throws BusinessException {
+        List<List<String>> actual = Helper.partitions(arrayListQueue, partitions_exception);
+    }
 
-    // test
+    @Test
+    public void linkdedListTestFail() {
+        try {
+            Helper.partitions(linkedListQueue, partitions_exception);
+            fail("Expected exception");
+        } catch (BusinessException be) {
+           assertThat(be.getMessage(), is("number of partitions should be greater than zero "));
+        }
+    }
+
+    @Test(expected = BusinessException.class)
+    public void vectorTestFail() throws BusinessException {
+        Helper.partitions(vectorQueue, partitions_exception);
+    }
+
+    @Test(expected = BusinessException.class)
+    public void stackTestFail() throws BusinessException {
+        Helper.partitions(stackQueue, partitions_exception);
+    }
 
 }
