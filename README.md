@@ -13,7 +13,7 @@ capable de partitioner toutes les classes(listes) qui héritent de l'interface c
 
 # Implémentation
 
-## Raisons
+## Choix
 ```sh
 Notre implémentation utilisera donc la classe Queue, car elle fournit des méthodes qui nous
 semblent plus adaptées à résoudre le probléme.
