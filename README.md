@@ -26,8 +26,10 @@ la taille de la liste
 ```sh
 Une description de notre implémentation:
 * On vérifie d'abord si le nombre de partitions à faire est un entier > 0, sinon une exception est lancée.
-* Si la premiére condition est vérifiée, on vérifie si la liste est de type Queue, sinon on la transforme en Queue
-* Si les deux premières conditions sont véifiées, on vérifie si la liste est vide , si oui une exception est lancée.
+* Si la premiére condition est vérifiée, on vérifie si la liste est de type Queue, sinon on 
+la transforme en Queue
+* Si les deux premières conditions sont véifiées, on vérifie si la liste est vide , si oui 
+une exception est lancée.
 * Si tout est bon le corps de la méthode est donc appelé:
 ```
 ```java
