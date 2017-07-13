@@ -18,7 +18,7 @@ capable de partitioner toutes les classes(listes) qui héritent de l'interface c
 Notre implémentation utilisera donc la classe Queue, car elle fournit des méthodes qui nous
 semblent plus adaptées à résoudre le probléme.
 * Elle fournie une structure de type FIFO(on n'a pas de contrainte de Priorité ici)
-* Donc on pourra facilement retirer des élèments dans la classe de départ, tout en réduisant 
+* Donc on pourra facilement retirer des éléments dans la liste de départ, tout en réduisant 
 la taille de la liste
 ```
 
@@ -28,18 +28,20 @@ Une description de notre implémentation:
 * On vérifie d'abord si le nombre de partitions à faire est un entier > 0, sinon une exception est lancée.
 * Si la premiére condition est vérifiée, on vérifie si la liste est de type Queue, sinon on la transforme en Queue
 * Si les deux premières conditions sont véifiées, on vérifie si la liste est vide , si oui une exception est lancée.
-* Si tout est bon :
+* Si tout est bon le corps de la méthode est donc appelé:
 ```
 ```java
+....
 while (queue.size() > 0) {
-            List<T> little = new LinkedList<>();
-            for (int i = 0; i < partitions; i++) {
-                if (queue.peek() != null) {
-                    little.add(queue.poll());
-                } else break;
-            }
-            big.add(little);
-        }
+   List<T> little = new LinkedList<>();
+   for (int i = 0; i < partitions; i++) {
+       if (queue.peek() != null) {
+           little.add(queue.poll());
+        } else break;
+   }
+   big.add(little);
+}
+....
 ```
 
 ## Test
@@ -48,5 +50,6 @@ Pour respecter les normes du TDD, ne jamais oublier les tests unitaires!!! Les l
 sont donc celles avec lesquelles elle a été testée.
 On obtient donc une couverture de 100%
 ```
+![Alt text](https://github.com/MarLeo/adneom/blob/master/couverture.PNG)
 
 
