@@ -16,30 +16,27 @@ public  class Helper {
             if (!(queue instanceof Queue)) {
                 Queue<T> queues = new LinkedList<>();
                 queues.addAll((Collection<? extends T>) queue);
-                while (queues.size() > 0) {
-                    List<T> little = new LinkedList<>();
-                    for (int i = 0; i < partitions; i++) {
-                        if (queues.peek() != null) {
-                            little.add(queues.poll());
-                        } else break;
-                    }
-                    big.add(little);
-                }
+                queueList(queues, partitions, big);
             } else {
-                while (((Queue) queue).size() > 0) {
-                    List<T> little = new LinkedList<>();
-                    for (int i = 0; i < partitions; i++) {
-                        if (((Queue) queue).peek() != null) {
-                            little.add((T) ((Queue) queue).poll());
-                        } else break;
-                    }
-                    big.add(little);
-                }
+                queueList((Queue) queue, partitions, big);
             }
-
             return big;
         }
-        throw new BusinessException("partitions should be greater than zero ");
+        throw new BusinessException("number of partitions should be greater than zero ");
+    }
+
+    private static <T> void queueList(Queue<T> queue, int partitions, List<List<T>> big) throws BusinessException {
+        if (queue.isEmpty())
+            throw new BusinessException("List should not be empty");
+        while (queue.size() > 0) {
+            List<T> little = new LinkedList<>();
+            for (int i = 0; i < partitions; i++) {
+                if (queue.peek() != null) {
+                    little.add(queue.poll());
+                } else break;
+            }
+            big.add(little);
+        }
     }
 
 

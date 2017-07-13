@@ -1,15 +1,16 @@
-package util;
+package driver;
 
 
 import exceptions.BusinessException;
+import util.Helper;
 
 import java.util.*;
 
-public class Demo {
+public class Driver {
 
     public static void main(String[] args) throws BusinessException {
 
-        NavigableSet<String> queue = new TreeSet<>();
+        Queue<String> queue = new LinkedList<>();
 
         queue.add("Java");
         queue.add(".NET");
@@ -21,10 +22,11 @@ public class Demo {
 
 
 
+
         System.out.println("Items in the queue..." + queue + " with size: " + queue.size());
 
 
-        int partitions = 2;
+        int partitions = 1;
         List<List<String>> big = Helper.partitions(queue, partitions);
         System.out.println("partitions in " + big);
 
